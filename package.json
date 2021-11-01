@@ -1,0 +1,39 @@
+{
+  "name": "goreleaser-azure-devops-extension",
+  "version": "0.1.7",
+  "description": "Azure DevOps Extension for GoReleaser",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf **/dist",
+    "prestart": "npx tsc -p ./",
+    "format": "prettier --write \"**/{*.ts,*.js,package.json}\"",
+    "postinstall": "(cd goreleaserTask && npm install); npm run compile",
+    "create": "tfx extension create",
+    "test": "ts-mocha **/tests/_suite.js",
+    "compile": "npx tsc -p .",
+    "lint": "eslint . --ext .ts",
+    "lint-and-fix": "eslint . --ext .ts --fix",
+    "publish": "rm -rf dist ; npm run compile ; tfx extension create --manifest-globs vss-extension.json --output-path dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dirien/goreleaser-azure-devops-extension.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dirien/goreleaser-azure-devops-extension/issues"
+  },
+  "homepage": "https://github.com/dirien/goreleaser-azure-devops-extension#readme",
+  "devDependencies": {
+    "@types/mocha": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
+    "eslint": "^8.1.0",
+    "prettier": "^2.4.1",
+    "tfx-cli": "^0.7.11",
+    "ts-mocha": "^8.0.0",
+    "typescript": "^3.5.3"
+  }
+}
