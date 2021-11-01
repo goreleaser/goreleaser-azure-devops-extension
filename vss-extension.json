@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "goreleaser-azure-devops-extension",
   "name": "GoReleaser",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "publisher": "goreleaser-azure-devops-extension",
   "targets": [
     {

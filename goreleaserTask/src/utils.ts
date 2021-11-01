@@ -93,12 +93,18 @@ export async function getGoReleaserCLI(version, distribution: string) {
     if (response.data != undefined) {
         const tagsData = response.data.map((obj) => obj.tag_name);
         let checkedVersion;
-        if (version === 'latest' || !isPro(distribution)) {
-            checkedVersion = semver.maxSatisfying(tagsData, '*');
+        const cleanTags: Array<string> = tagsData.map((tag) =>
+            cleanTag(tag),
+        );
+        if (version === 'latest') {
+            console.log("here")
+            checkedVersion = semver.maxSatisfying(cleanTags, '*');
+            if (isPro(distribution)) {
+                checkedVersion += suffix(distribution);
+            }
+
         } else {
-            const cleanTags: Array<string> = tagsData.map((tag) =>
-                cleanTag(tag),
-            );
+
             const cleanVersion: string = cleanTag(version);
             checkedVersion =
                 semver.maxSatisfying(cleanTags, cleanVersion) +
