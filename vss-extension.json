@@ -1,0 +1,41 @@
+{
+  "manifestVersion": 1,
+  "id": "goreleaser-azure-devops-extension",
+  "name": "GoReleaser",
+  "version": "0.1.7",
+  "publisher": "goreleaser-azure-devops-extension",
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "description": "GoReleaser integration for Azure DevOps",
+  "categories": [
+    "Azure Pipelines"
+  ],
+  "icons": {
+    "default": "images/extension-icon.png"
+  },
+  "files": [
+    {
+      "path": "images",
+      "addressable": true
+    },
+    {
+      "path": "goreleaserTask"
+    }
+  ],
+  "contributions": [
+    {
+      "id": "custom-build-release-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "goreleaserTask"
+      }
+    }
+  ]
+}
+
