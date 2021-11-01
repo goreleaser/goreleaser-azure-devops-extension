@@ -16,6 +16,23 @@
   "icons": {
     "default": "images/extension-icon.png"
   },
+  "content": {
+    "details": {
+      "path": "marketplace.md"
+    }
+  },
+  "links": {
+    "home": {
+      "uri": "https://goreleaser.com/"
+    },
+    "support": {
+      "uri": "https://goreleaser.com/"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/dirien/goreleaser-azure-devops-extension"
+  },
   "files": [
     {
       "path": "images",
