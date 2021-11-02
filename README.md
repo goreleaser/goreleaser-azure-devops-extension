@@ -13,6 +13,7 @@ This task allows you to easily run GoReleaser within your Azure Pipeline jobs.
 ## Customizing
 
 Add the plugin via Azure Pipeline Editor
+
 ![](images/ado_2.png)
 
 or directly into your `azure-pipeline.yaml`
