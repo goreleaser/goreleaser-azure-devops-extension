@@ -105,4 +105,5 @@ dist
 
 .idea
 !**/mock_node_modules/**/*.js
-.taskkey.DS_Store
+.taskkey
+.DS_Store
