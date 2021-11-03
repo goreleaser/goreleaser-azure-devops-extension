@@ -1,6 +1,6 @@
 {
   "manifestVersion": 1,
-  "id": "goreleaser-azure-devops-extension",
+  "id": "goreleaser",
   "name": "GoReleaser",
   "version": "0.1.9",
   "publisher": "GoReleaser",
