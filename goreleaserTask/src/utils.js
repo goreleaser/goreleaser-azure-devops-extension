@@ -86,11 +86,14 @@ function getGoReleaserCLI(version, distribution) {
         if (response.data != undefined) {
             const tagsData = response.data.map((obj) => obj.tag_name);
             let checkedVersion;
-            if (version === 'latest' || !isPro(distribution)) {
-                checkedVersion = semver.maxSatisfying(tagsData, '*');
+            const cleanTags = tagsData.map((tag) => cleanTag(tag));
+            if (version === 'latest') {
+                checkedVersion = semver.maxSatisfying(cleanTags, '*');
+                if (isPro(distribution)) {
+                    checkedVersion += suffix(distribution);
+                }
             }
             else {
-                const cleanTags = tagsData.map((tag) => cleanTag(tag));
                 const cleanVersion = cleanTag(version);
                 checkedVersion =
                     semver.maxSatisfying(cleanTags, cleanVersion) +
