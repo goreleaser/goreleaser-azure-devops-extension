@@ -97,7 +97,6 @@ export async function getGoReleaserCLI(version, distribution: string) {
             cleanTag(tag),
         );
         if (version === 'latest') {
-            console.log("here")
             checkedVersion = semver.maxSatisfying(cleanTags, '*');
             if (isPro(distribution)) {
                 checkedVersion += suffix(distribution);
