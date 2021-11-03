@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "goreleaser",
   "name": "GoReleaser",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "publisher": "GoReleaser",
   "targets": [
     {
@@ -13,6 +13,7 @@
   "categories": [
     "Azure Pipelines"
   ],
+  "public": true,
   "icons": {
     "default": "images/extension-icon.png"
   },
