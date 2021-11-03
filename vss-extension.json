@@ -2,8 +2,8 @@
   "manifestVersion": 1,
   "id": "goreleaser-azure-devops-extension",
   "name": "GoReleaser",
-  "version": "0.1.8",
-  "publisher": "goreleaser-azure-devops-extension",
+  "version": "0.1.9",
+  "publisher": "GoReleaser",
   "targets": [
     {
       "id": "Microsoft.VisualStudio.Services"
@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "uri": "https://github.com/dirien/goreleaser-azure-devops-extension"
+    "uri": "https://github.com/goreleaser/goreleaser-azure-devops-extension"
   },
   "files": [
     {

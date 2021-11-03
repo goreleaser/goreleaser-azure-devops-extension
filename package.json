@@ -17,15 +17,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dirien/goreleaser-azure-devops-extension.git"
+    "url": "git+https://github.com/goreleaser/goreleaser-azure-devops-extension.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dirien/goreleaser-azure-devops-extension/issues"
+    "url": "https://github.com/goreleaser/goreleaser-azure-devops-extension/issues"
   },
-  "homepage": "https://github.com/dirien/goreleaser-azure-devops-extension#readme",
+  "homepage": "https://github.com/goreleaser/goreleaser-azure-devops-extension#readme",
   "devDependencies": {
     "@types/mocha": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
