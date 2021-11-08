@@ -14,7 +14,7 @@
     "lint-and-fix": "eslint . --ext .ts --fix",
     "create": "rm -rf dist ; npm run compile ; tfx extension create --manifest-globs vss-extension.json --output-path dist",
     "release": "npx release-it -- --ci",
-    "publish_ci": "tfx extension show --auth-type pat --token $AZURE_DEVOPS_EXT_PAT --publisher $PUBLISHER_NAME --extension-id $EXTENSION_ID --vsix dist/GoReleaser.goreleaser-$VERSION.vsix"
+    "publish_ci": "tfx extension publish --manifest-globs vss-extension.json --auth-type pat --token $AZURE_DEVOPS_EXT_PAT --publisher $PUBLISHER_NAME --extension-id $EXTENSION_ID --vsix dist/GoReleaser.goreleaser-$VERSION.vsix"
   },
   "repository": {
     "type": "git",
