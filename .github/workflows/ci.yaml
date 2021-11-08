@@ -6,7 +6,12 @@ on:
       - '*'
     tags:
       - '*'
-  pull_request:
+  #pull_request:
+
+env:
+  PUBLISHER_NAME: Release
+  EXTENSION_ID: goreleaser
+  AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_EXT_PAT }}
 
 jobs:
   build:
@@ -32,8 +37,20 @@ jobs:
           cache: 'npm'
           cache-dependency-path: package-lock.json
       - run: npm install
-      - run: npm run publish
-      - name: Upload binaries to release
+      - name: 'Automated Version Bump of package.json'
+        uses: phips28/gh-action-bump-version@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          target-branch: 'main'
+      - name: update version
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "extension_version"
+          replace: ${{ github.ref }}
+          include: "**README.md"
+      - run: npm run create
+      - name: Upload azure devops extension to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -41,3 +58,7 @@ jobs:
           file_glob: true
           overwrite: true
           tag: ${{ github.ref }}
+      - name: Upload azure devops extension to marketplace
+        run: |
+          export VERSION=${{ github.ref }}
+          npm run publish_ci

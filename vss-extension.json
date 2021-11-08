@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "goreleaser",
   "name": "GoReleaser",
-  "version": "0.1.12",
+  "version": "extension_version",
   "publisher": "GoReleaser",
   "targets": [
     {
