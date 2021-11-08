@@ -8,12 +8,12 @@
     "prestart": "npx tsc -p ./",
     "format": "prettier --write \"**/{*.ts,*.js,package.json}\"",
     "postinstall": "(cd goreleaserTask && npm install); npm run compile",
-    "create": "tfx extension create",
     "test": "ts-mocha **/tests/_suite.js",
     "compile": "npx tsc -p .",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
-    "publish": "rm -rf dist ; npm run compile ; tfx extension create --manifest-globs vss-extension.json --output-path dist"
+    "create": "rm -rf dist ; npm run compile ; tfx extension create --manifest-globs vss-extension.json --output-path dist",
+    "publish_ci": "tfx extension show --auth-type pat --token ${{ secrets.AZURE_DEVOPS_EXT_PAT }} --publisher $PUBLISHER_NAME --extension-id $EXTENSION_ID"
   },
   "repository": {
     "type": "git",
