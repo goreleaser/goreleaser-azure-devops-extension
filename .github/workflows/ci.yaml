@@ -25,7 +25,6 @@ jobs:
           cache-dependency-path: package-lock.json
       - run: npm install
       - run: npm run compile
-      - run: npm run publish_ci
   release:
     needs: build
     runs-on: ubuntu-latest
@@ -47,3 +46,17 @@ jobs:
           file_glob: true
           overwrite: true
           tag: ${{ github.ref }}
+      - run: |
+          export VERSION=${{ github.ref }}
+      - name: 'Automated Version Bump of package.json'
+        uses: phips28/gh-action-bump-version@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: update version
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "extension_version"
+          replace: $VERSION
+          include: "**README.md"
+      - run: |
+          npm run publish_ci
