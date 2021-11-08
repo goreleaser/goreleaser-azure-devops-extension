@@ -107,3 +107,5 @@ dist
 !**/mock_node_modules/**/*.js
 .taskkey
 .DS_Store
+
+goreleaserTask/**/*.js
