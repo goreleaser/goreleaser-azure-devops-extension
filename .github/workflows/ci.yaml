@@ -11,6 +11,7 @@ on:
 env:
   PUBLISHER_NAME: Release
   EXTENSION_ID: goreleaser
+  AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_EXT_PAT }}
 
 jobs:
   build:
