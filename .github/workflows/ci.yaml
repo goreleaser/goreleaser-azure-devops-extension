@@ -25,10 +25,6 @@ jobs:
           cache-dependency-path: package-lock.json
       - run: npm install
       - run: npm run compile
-      - run: npm run release
-        if: success() && startsWith(github.ref, 'refs/main')
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   release:
     needs: build
     runs-on: ubuntu-latest
@@ -41,6 +37,24 @@ jobs:
           cache: 'npm'
           cache-dependency-path: package-lock.json
       - run: npm install
+      - run: git fetch origin main
+      - name: 'Automated Version Bump of package.json'
+        uses: phips28/gh-action-bump-version@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          skip-tag: 'true'
+          target-branch: 'main'
+      - name: update version
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "extension_version"
+          replace: ${{ github.ref }}
+          include: "**README.md"
+      - name: Upload azure devops extension to marketplace
+        run: |
+          export VERSION=${{ github.ref }}
+          npm run publish_ci
       - run: npm run create
       - name: Upload azure devops extension to release
         uses: svenstaro/upload-release-action@v2
@@ -50,7 +64,3 @@ jobs:
           file_glob: true
           overwrite: true
           tag: ${{ github.ref }}
-      - name: Upload azure devops extension to marketplace
-        run: |
-          export VERSION=${{ github.ref }}
-          npm run publish_ci
