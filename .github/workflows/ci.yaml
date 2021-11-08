@@ -37,14 +37,6 @@ jobs:
           cache: 'npm'
           cache-dependency-path: package-lock.json
       - run: npm install
-      - run: git fetch origin main
-      - name: 'Automated Version Bump of package.json'
-        uses: phips28/gh-action-bump-version@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          skip-tag: 'true'
-          target-branch: 'main'
       - name: get-npm-version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@master
@@ -67,3 +59,11 @@ jobs:
           file_glob: true
           overwrite: true
           tag: ${{ github.ref }}
+      - run: git fetch origin main
+      - name: 'Automated Version Bump of package.json'
+        uses: phips28/gh-action-bump-version@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          skip-tag: 'true'
+          target-branch: 'main'
