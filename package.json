@@ -13,7 +13,7 @@
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
     "create": "rm -rf dist ; npm run compile ; tfx extension create --manifest-globs vss-extension.json --output-path dist",
-    "release": "npx release-it",
+    "release": "npx release-it -- --ci",
     "publish_ci": "tfx extension show --auth-type pat --token $AZURE_DEVOPS_EXT_PAT --publisher $PUBLISHER_NAME --extension-id $EXTENSION_ID --vsix GoReleaser.goreleaser-${VERSION//v}.vsix"
   },
   "repository": {
