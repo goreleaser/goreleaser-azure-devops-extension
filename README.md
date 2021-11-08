@@ -81,4 +81,4 @@ GoReleaser.
 
 MIT
 
-see [LICENSE](https://github.com/goreleaser/goreleaser-azure-devops-extension/blob/34def69b4f3efaaffd449b0da2a4240e0ab7905b/LICENSE) for details.
+see [LICENSE](./LICENSE) for details.

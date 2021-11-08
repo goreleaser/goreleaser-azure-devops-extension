@@ -20,14 +20,23 @@
   "content": {
     "details": {
       "path": "README.md"
+    },
+    "license": {
+      "path": "LICENSE"
     }
   },
   "links": {
     "home": {
       "uri": "https://goreleaser.com/"
     },
+    "getstarted": {
+      "uri": "https://goreleaser.com/quick-start/"
+    },
     "support": {
-      "uri": "https://goreleaser.com/"
+      "uri": "https://github.com/goreleaser/goreleaser/discussions"
+    },
+    "license": {
+      "uri": "./LICENSE"
     }
   },
   "repository": {
@@ -41,6 +50,10 @@
     },
     {
       "path": "goreleaserTask"
+    },
+    {
+      "path": "LICENSE",
+      "addressable": true
     }
   ],
   "contributions": [
