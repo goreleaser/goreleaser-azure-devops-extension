@@ -45,17 +45,20 @@ jobs:
         with:
           skip-tag: 'true'
           target-branch: 'main'
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
       - name: update version
         uses: jacobtomlinson/gha-find-replace@v2
         with:
           find: "extension_version"
-          replace: ${{ github.ref }}
-          include: "**README.md"
+          replace: ${{ steps.package-version.outputs.current-version}}
+          include: "vss-extension.json"
+      - run: npm run create
       - name: Upload azure devops extension to marketplace
         run: |
-          export VERSION=${{ github.ref }}
+          export VERSION=${{ steps.package-version.outputs.current-version}}
           npm run publish_ci
-      - run: npm run create
       - name: Upload azure devops extension to release
         uses: svenstaro/upload-release-action@v2
         with:
