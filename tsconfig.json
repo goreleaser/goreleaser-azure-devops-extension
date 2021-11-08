@@ -2,9 +2,12 @@
   "compilerOptions": {
     "target": "ES6",
     "module": "commonjs",
-    "types": ["mocha"],
+    "types": [
+      "mocha"
+    ],
+    "useUnknownInCatchVariables": false
   },
   "include": [
-    "./goreleaserTask/**/*",
+    "./goreleaserTask/**/*"
   ]
 }
