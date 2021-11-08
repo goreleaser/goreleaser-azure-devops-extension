@@ -9,7 +9,7 @@ on:
   pull_request:
 
 env:
-  PUBLISHER_NAME: Release
+  PUBLISHER_NAME: GoReleaser
   EXTENSION_ID: goreleaser
   AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_EXT_PAT }}
 
