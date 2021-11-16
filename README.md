@@ -55,12 +55,12 @@ Following environment variables can be used, as environment variable.
 
 ## Limitation
 
-I think, you should not disable the [release step](https://goreleaser.com/customization/release/) or create a dummy repo
-in GitHub. So you can still use your own `homebrew tap` or `gofish` repo.
+I think, you should either disable the [release step](https://goreleaser.com/customization/release/).
+Or create a "dummy" repo in GitHub, so you can still use your own `homebrew tap` or `gofish` repo.
 
-GoReleaser is not supporting currently Azure Artifact as target.
+GoReleaser is not supporting Azure Artifacts currently.
 
-You can crate still a release but need to use `Publish Pipeline Artifacts`
+You need to use `Publish Pipeline Artifacts` to publish the artifact inside Azure DevOps.
 
 ## Documentation
 
