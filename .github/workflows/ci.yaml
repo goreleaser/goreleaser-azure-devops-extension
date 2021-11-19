@@ -71,10 +71,12 @@ jobs:
           export VERSION=${{ steps.package-version.outputs.current-version}}
           npm run unpublish_ci
           npm run publish_ci
+          npm run share_dev
         env:
           AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_EXT_PAT_DEV }}
           PUBLISHER_NAME: ${{ secrets.EXTENSION_DEV_PUBLISHER }}
           EXTENSION_ID: ${{ secrets.EXTENSION_DEV_ID }}
+          $SHARE_WITH_DEV_ORGA: ${{ secrets.SHARE_WITH_DEV_ORGA }}
   release:
     needs: build
     runs-on: ubuntu-latest
