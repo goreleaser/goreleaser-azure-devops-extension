@@ -9,9 +9,8 @@ on:
   pull_request:
 
 env:
-  PUBLISHER_NAME: GoReleaser
-  EXTENSION_ID: goreleaser
   AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_EXT_PAT }}
+  AZURE_DEVOPS_EXT_PAT_DEV: ${{ secrets.AZURE_DEVOPS_EXT_PAT_DEV }}
 
 jobs:
   build:
@@ -25,6 +24,60 @@ jobs:
           cache-dependency-path: package-lock.json
       - run: npm install
       - run: npm run compile
+  publish-dev:
+    needs: build
+    runs-on: ubuntu-latest
+    if: success() && startsWith(github.ref, 'refs/heads/main')
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '17'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+      - run: npm install
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+      - name: update version
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "extension_version"
+          replace: ${{ steps.package-version.outputs.current-version}}
+          include: "vss-extension.json"
+      - name: update extension id
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "extension_id"
+          replace: ${{ secrets.EXTENSION_DEV_ID }}
+          include: "vss-extension.json"
+      - name: update extension publisher
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "extension_publisher"
+          replace: ${{ secrets.EXTENSION_DEV_PUBLISHER }}
+          include: "vss-extension.json"
+      - name: update extension public
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "extension_public"
+          replace: false
+          include: "vss-extension.json"
+      - name: update task id
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "task_id"
+          replace: ${{ secrets.TASK_DEV_ID }}
+          include: "goreleaserTask/task.json"
+      - run: npm run create
+      - name: Upload azure devops extension to marketplace
+        run: |
+          export VERSION=${{ steps.package-version.outputs.current-version}}
+          npm run publish_ci
+        env:
+          AZURE_DEVOPS_EXT_PAT: $AZURE_DEVOPS_EXT_PAT_DEV
+          PUBLISHER_NAME: ${{ secrets.EXTENSION_DEV_PUBLISHER }}
+          EXTENSION_ID: ${{ secrets.EXTENSION_DEV_ID }}
   release:
     needs: build
     runs-on: ubuntu-latest
@@ -46,11 +99,38 @@ jobs:
           find: "extension_version"
           replace: ${{ steps.package-version.outputs.current-version}}
           include: "vss-extension.json"
+      - name: update extension id
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "extension_id"
+          replace: ${{ secrets.EXTENSION_PROD_ID }}
+          include: "vss-extension.json"
+      - name: update extension publisher
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "extension_publisher"
+          replace: ${{ secrets.EXTENSION_PROD_PUBLISHER }}
+          include: "vss-extension.json"
+      - name: update extension public
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "extension_public"
+          replace: true
+          include: "vss-extension.json"
+      - name: update task id
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "task_id"
+          replace: ${{ secrets.TASK_PROD_ID }}
+          include: "goreleaserTask/task.json"
       - run: npm run create
       - name: Upload azure devops extension to marketplace
         run: |
           export VERSION=${{ steps.package-version.outputs.current-version}}
           npm run publish_ci
+        env:
+          PUBLISHER_NAME: ${{ secrets.EXTENSION_PROD_PUBLISHER }}
+          EXTENSION_ID: ${{ secrets.EXTENSION_PROD_ID }}
       - name: Upload azure devops extension to release
         uses: svenstaro/upload-release-action@v2
         with:
