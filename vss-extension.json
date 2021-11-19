@@ -1,9 +1,9 @@
 {
   "manifestVersion": 1,
-  "id": "goreleaser",
+  "id": "extension_id",
   "name": "GoReleaser",
   "version": "extension_version",
-  "publisher": "GoReleaser",
+  "publisher": "extension_publisher",
   "targets": [
     {
       "id": "Microsoft.VisualStudio.Services"
@@ -13,7 +13,7 @@
   "categories": [
     "Azure Pipelines"
   ],
-  "public": true,
+  "public": extension_public,
   "icons": {
     "default": "images/extension-icon.png"
   },

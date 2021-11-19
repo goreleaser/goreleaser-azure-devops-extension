@@ -1,5 +1,5 @@
 {
-  "id": "b4a32eee-3b3e-11ec-8d3d-0242ac130003",
+  "id": "task_id",
   "name": "goreleaser",
   "friendlyName": "GoReleaser",
   "description": "GoReleaser integration for Azure DevOps",
