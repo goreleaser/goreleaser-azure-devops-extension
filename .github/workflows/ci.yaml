@@ -8,10 +8,6 @@ on:
       - '*'
   pull_request:
 
-env:
-  AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_EXT_PAT }}
-  AZURE_DEVOPS_EXT_PAT_DEV: ${{ secrets.AZURE_DEVOPS_EXT_PAT_DEV }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -75,7 +71,7 @@ jobs:
           export VERSION=${{ steps.package-version.outputs.current-version}}
           npm run publish_ci
         env:
-          AZURE_DEVOPS_EXT_PAT: $AZURE_DEVOPS_EXT_PAT_DEV
+          AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_EXT_PAT_DEV }}
           PUBLISHER_NAME: ${{ secrets.EXTENSION_DEV_PUBLISHER }}
           EXTENSION_ID: ${{ secrets.EXTENSION_DEV_ID }}
   release:
@@ -129,6 +125,7 @@ jobs:
           export VERSION=${{ steps.package-version.outputs.current-version}}
           npm run publish_ci
         env:
+          AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_EXT_PAT }}
           PUBLISHER_NAME: ${{ secrets.EXTENSION_PROD_PUBLISHER }}
           EXTENSION_ID: ${{ secrets.EXTENSION_PROD_ID }}
       - name: Upload azure devops extension to release
