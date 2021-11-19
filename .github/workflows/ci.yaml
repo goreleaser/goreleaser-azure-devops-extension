@@ -76,7 +76,7 @@ jobs:
           AZURE_DEVOPS_EXT_PAT: ${{ secrets.AZURE_DEVOPS_EXT_PAT_DEV }}
           PUBLISHER_NAME: ${{ secrets.EXTENSION_DEV_PUBLISHER }}
           EXTENSION_ID: ${{ secrets.EXTENSION_DEV_ID }}
-          $SHARE_WITH_DEV_ORGA: ${{ secrets.SHARE_WITH_DEV_ORGA }}
+          SHARE_WITH_DEV_ORGA: ${{ secrets.SHARE_WITH_DEV_ORGA }}
   release:
     needs: build
     runs-on: ubuntu-latest
