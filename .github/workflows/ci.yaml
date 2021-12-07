@@ -132,6 +132,7 @@ jobs:
           PUBLISHER_NAME: ${{ secrets.EXTENSION_PROD_PUBLISHER }}
           EXTENSION_ID: ${{ secrets.EXTENSION_PROD_ID }}
       - name: Upload azure devops extension to release
+        if: always()
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -140,7 +141,9 @@ jobs:
           overwrite: true
           tag: ${{ github.ref }}
       - run: git fetch origin main
+        if: always()
       - name: 'Automated Version Bump of package.json'
+        if: always()
         uses: phips28/gh-action-bump-version@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
