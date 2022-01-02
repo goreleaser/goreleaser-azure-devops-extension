@@ -26,7 +26,7 @@ or directly into your `azure-pipeline.yaml`
     version: 'latest'
     distribution: 'goreleaser'
     args: ''
-    workdir: '$(Build.SourcesDirectory)s'
+    workdir: '$(Build.SourcesDirectory)'
 ````
 
 ### Inputs
@@ -55,8 +55,8 @@ Following environment variables can be used, as environment variable.
 
 ## Limitation
 
-I think, you should either disable the [release step](https://goreleaser.com/customization/release/).
-Or create a "dummy" repo in GitHub, so you can still use your own `homebrew tap` or `gofish` repo.
+I think, you should either disable the [release step](https://goreleaser.com/customization/release/). Or create a "
+dummy" repo in GitHub, so you can still use your own `homebrew tap` or `gofish` repo.
 
 GoReleaser is not supporting Azure Artifacts currently.
 
