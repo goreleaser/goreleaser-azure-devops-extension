@@ -1,24 +1,38 @@
-# goreleaser-azure-devops-extension
+![ado_goreleaser](images/title.png)
 
-Azure DevOps Extension for GoReleaser
+# GoReleaser: Azure DevOps Extension
+[![Release](https://img.shields.io/github/release/goreleaser/goreleaser-azure-devops-extension.svg?style=for-the-badge)](https://github.com/goreleaser/goreleaser-azure-devops-extension/releases/latest)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=for-the-badge)](LICENSE)
+[![Build status](https://img.shields.io/github/workflow/status/goreleaser/goreleaser-azure-devops-extension/Build%20Binary/main?style=for-the-badge)](https://github.com/goreleaser/goreleaser-azure-devops-extension/actions?workflow=build)
+
+![Azure DevOps](https://img.shields.io/badge/azure_devops-0078D7?style=for-the-badge&logo=azuredevops&logoColor=white)
+
+[![Join Discord](https://img.shields.io/badge/Join_our_Discord_server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/RGEBtg8vQ6)
+[![Join Discord](https://img.shields.io/badge/follow_on_twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/goreleaser)
+
 
 ## Overview
 
 This task allows you to easily run GoReleaser within your Azure Pipeline jobs.
 
+## Howto
+
+See the blog article [Use GoReleaser With Azure DevOps](https://blog.goreleaser.com/use-goreleaser-with-azure-devops-c2212d3996ca)
+for a detailed explanation of how to use this extension in your Azure Pipeline jobs.
+
 ## QuickStart
 
-![](images/ado.png)
+![quickstart_1](images/ado.png)
 
 ## Customizing
 
 Add the plugin via Azure Pipeline Editor
 
-![](images/ado_2.png)
+![quickstart_2](images/ado_2.png)
 
 or directly into your `azure-pipeline.yaml`
 
-![](images/ado_3.png)
+![quickstart_3](images/ado_3.png)
 
 ````yaml
 - task: goreleaser@0
@@ -33,13 +47,13 @@ or directly into your `azure-pipeline.yaml`
 
 Following inputs can be used
 
-| Name             | Type    | Default      | Description                                                      |
-|------------------|---------|--------------|------------------------------------------------------------------|
-| `distribution`   | String  | `goreleaser` | GoReleaser distribution, either `goreleaser` or `goreleaser-pro` |
-| `version`**¹**   | String  | `latest`     | GoReleaser version                                               |
-| `args`           | String  |              | Arguments to pass to GoReleaser                                  |
-| `workdir`        | String  | `$(Build.SourcesDirectory)`          | Working directory (below repository root)                        |
-| `installOnly`   | Bool    | `false`      | Just install GoReleaser                                          |
+| Name           | Type   | Default                     | Description                                                      |
+|----------------|--------|-----------------------------|------------------------------------------------------------------|
+| `distribution` | String | `goreleaser`                | GoReleaser distribution, either `goreleaser` or `goreleaser-pro` |
+| `version`**¹** | String | `latest`                    | GoReleaser version                                               |
+| `args`         | String |                             | Arguments to pass to GoReleaser                                  |
+| `workdir`      | String | `$(Build.SourcesDirectory)` | Working directory (below repository root)                        |
+| `installOnly`  | Bool   | `false`                     | Just install GoReleaser                                          |
 
 > **¹** Can be a fixed version like `v0.132.0` or a max satisfying semver one like `~> 0.132`. In this case this will return `v0.132.1`.
 > For the `pro` version, add `-pro` to the string
@@ -48,10 +62,10 @@ Following inputs can be used
 
 Following environment variables can be used, as environment variable.
 
-| Name             | Description                           |
-|------------------|---------------------------------------|
+| Name             | Description                                                                                                                                            |
+|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `GITHUB_TOKEN`   | [GITHUB_TOKEN](https://help.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token) for e.g. `brew` or `gofish` |
-| `GORELEASER_KEY` | Your [GoReleaser Pro](https://goreleaser.com/pro) License Key, in case you are using the `goreleaser-pro` distribution                              |
+| `GORELEASER_KEY` | Your [GoReleaser Pro](https://goreleaser.com/pro) License Key, in case you are using the `goreleaser-pro` distribution                                 |
 
 ## Limitation
 
