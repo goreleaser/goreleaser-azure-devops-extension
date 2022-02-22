@@ -2,6 +2,10 @@ name: Build Binary
 
 on:
   push:
+    paths-ignore:
+      - '.github/**'
+      - '**/*.md'
+      - 'images/**'
     branches:
       - '*'
     tags:
