@@ -30,13 +30,13 @@
   },
   "homepage": "https://github.com/goreleaser/goreleaser-azure-devops-extension#readme",
   "devDependencies": {
-    "@types/mocha": "^9.1.0",
-    "@typescript-eslint/eslint-plugin": "^5.17.0",
-    "@typescript-eslint/parser": "^5.17.0",
-    "eslint": "^8.12.0",
-    "prettier": "^2.6.1",
-    "tfx-cli": "^0.11.0",
-    "ts-mocha": "^9.0.2",
-    "typescript": "^4.6.3"
+    "@types/mocha": "9.1.0",
+    "@typescript-eslint/eslint-plugin": "5.17.0",
+    "@typescript-eslint/parser": "5.17.0",
+    "eslint": "8.12.0",
+    "prettier": "2.6.1",
+    "tfx-cli": "0.11.0",
+    "ts-mocha": "9.0.2",
+    "typescript": "4.6.3"
   }
 }
