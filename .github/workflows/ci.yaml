@@ -68,6 +68,7 @@ jobs:
           find: "task_id"
           replace: ${{ secrets.TASK_DEV_ID }}
           include: "goreleaserTask/task.json"
+      - run: cat goreleaserTask/task.json
       - name: update task id
         uses: jacobtomlinson/gha-find-replace@v2
         with:
