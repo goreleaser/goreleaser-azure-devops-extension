@@ -27,7 +27,6 @@ jobs:
   publish-dev:
     needs: build
     runs-on: ubuntu-latest
-    if: success() && startsWith(github.ref, 'refs/heads/main')
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
