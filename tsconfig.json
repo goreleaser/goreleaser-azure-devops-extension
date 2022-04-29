@@ -8,6 +8,7 @@
     "useUnknownInCatchVariables": false
   },
   "include": [
-    "./goreleaserTask/**/*"
+    "./goreleaserTask/**/*",
+    "./goreleaserInstallerTask/**/*"
   ]
 }

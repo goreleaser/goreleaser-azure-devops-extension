@@ -52,6 +52,9 @@
       "path": "goreleaserTask"
     },
     {
+      "path": "goreleaserInstallerTask"
+    },
+    {
       "path": "LICENSE",
       "addressable": true
     }
@@ -65,6 +68,16 @@
       ],
       "properties": {
         "name": "goreleaserTask"
+      }
+    },
+    {
+      "id": "goreleaser-installer-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "goreleaserInstallerTask"
       }
     }
   ]

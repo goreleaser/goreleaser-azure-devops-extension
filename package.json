@@ -7,7 +7,7 @@
     "clean": "rm -rf **/dist",
     "prestart": "npx tsc -p ./",
     "format": "prettier --write \"**/{*.ts,*.js,package.json}\"",
-    "postinstall": "(cd goreleaserTask && npm install); npm run compile",
+    "postinstall": "(cd goreleaserTask && npm install); (cd goreleaserInstallerTask && npm install); npm run compile;",
     "test": "ts-mocha **/tests/_suite.js",
     "compile": "npx tsc -p .",
     "lint": "eslint . --ext .ts",

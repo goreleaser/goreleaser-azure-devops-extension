@@ -109,3 +109,4 @@ dist
 .DS_Store
 
 goreleaserTask/**/*.js
+goreleaserInstallerTask/**/*.js

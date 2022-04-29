@@ -69,6 +69,12 @@ jobs:
           find: "task_id"
           replace: ${{ secrets.TASK_DEV_ID }}
           include: "goreleaserTask/task.json"
+      - name: update task id
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "task_id"
+          replace: ${{ secrets.TASK_DEV_ID_2 }}
+          include: "goreleaserInstallerTask/task.json"
       - run: npm run create
       - name: Upload azure devops extension to marketplace
         run: |
@@ -126,6 +132,12 @@ jobs:
           find: "task_id"
           replace: ${{ secrets.TASK_PROD_ID }}
           include: "goreleaserTask/task.json"
+      - name: update task id
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "task_id"
+          replace: ${{ secrets.TASK_PROD_ID_2 }}
+          include: "goreleaserInstallerTask/task.json"
       - run: npm run create
       - name: Upload azure devops extension to marketplace
         run: |
