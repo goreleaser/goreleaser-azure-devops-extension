@@ -76,6 +76,10 @@ GoReleaser is not supporting Azure Artifacts currently.
 
 You need to use `Publish Pipeline Artifacts` to publish the artifact inside Azure DevOps.
 
+## Tutorials 
+
+- [Use GoReleaser With Azure DevOps](https://blog.goreleaser.com/use-goreleaser-with-azure-devops-c2212d3996ca)
+
 ## Documentation
 
 Please refer to [https://goreleaser.com/intro/](https://goreleaser.com/intro/) for more documentation on using
