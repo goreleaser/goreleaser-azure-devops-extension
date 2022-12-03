@@ -2,7 +2,7 @@
     "dependencies": {
         "@types/node": "18.11.10",
         "axios": "0.27.2",
-        "azure-pipelines-task-lib": "4.0.2",
+        "azure-pipelines-task-lib": "4.1.0",
         "azure-pipelines-tool-lib": "1.3.2",
         "semver": "7.3.8"
     }
