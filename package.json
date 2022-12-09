@@ -33,7 +33,7 @@
     "@types/mocha": "10.0.1",
     "@typescript-eslint/eslint-plugin": "5.46.0",
     "@typescript-eslint/parser": "5.45.0",
-    "eslint": "8.28.0",
+    "eslint": "8.29.0",
     "prettier": "2.8.0",
     "tfx-cli": "0.12.0",
     "ts-mocha": "10.0.0",
