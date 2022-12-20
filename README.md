@@ -3,7 +3,7 @@
 # GoReleaser: Azure DevOps Extension
 [![Release](https://img.shields.io/github/release/goreleaser/goreleaser-azure-devops-extension.svg?style=for-the-badge)](https://github.com/goreleaser/goreleaser-azure-devops-extension/releases/latest)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=for-the-badge)](LICENSE)
-[![Build status](https://img.shields.io/github/workflow/status/goreleaser/goreleaser-azure-devops-extension/Build%20Binary/main?style=for-the-badge)](https://github.com/goreleaser/goreleaser-azure-devops-extension/actions?workflow=build)
+[![Build status](https://img.shields.io/github/actions/workflow/status/goreleaser/goreleaser-azure-devops-extension/ci.yaml?style=for-the-badge&branch=main)](https://github.com/goreleaser/goreleaser-azure-devops-extension/actions?workflow=build)
 
 ![Azure DevOps](https://img.shields.io/badge/azure_devops-0078D7?style=for-the-badge&logo=azuredevops&logoColor=white)
 
