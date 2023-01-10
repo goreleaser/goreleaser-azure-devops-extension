@@ -79,6 +79,8 @@ You need to use `Publish Pipeline Artifacts` to publish the artifact inside Azur
 ## Tutorials 
 
 - [Use GoReleaser With Azure DevOps](https://blog.goreleaser.com/use-goreleaser-with-azure-devops-c2212d3996ca)
+- [Releasing multi-platform container images with GoReleaser in Azure DevOps
+  ](https://blog.goreleaser.com/releasing-multi-platform-container-images-with-goreleaser-in-azure-devops-d8916df4250a)
 
 ## Documentation
 
