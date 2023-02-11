@@ -11,6 +11,8 @@
 [![Join Discord](https://img.shields.io/badge/follow_on_twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/goreleaser)
 
 
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/dirien/minectl/badge?style=for-the-badge)](https://api.securityscorecards.dev/projects/github.com/goreleaser/goreleaser-azure-devops-extension)
+
 ## Overview
 
 This task allows you to easily run GoReleaser within your Azure Pipeline jobs.
