@@ -17,8 +17,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+      - uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
         with:
           node-version: '18'
           cache: 'npm'
@@ -30,8 +30,8 @@ jobs:
     runs-on: ubuntu-latest
     if: success() && startsWith(github.ref, 'refs/heads/main')
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+      - uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
         with:
           node-version: '18'
           cache: 'npm'
@@ -39,33 +39,33 @@ jobs:
       - run: npm install
       - name: get-npm-version
         id: package-version
-        uses: martinbeentjes/npm-get-version-action@master
+        uses: martinbeentjes/npm-get-version-action@7aa1d82604bb2dbe377a64ca35e692e6fe333c9c # master
       - name: update version
-        uses: jacobtomlinson/gha-find-replace@v2
+        uses: jacobtomlinson/gha-find-replace@f485fdc3f67a6d87ae6e3d11e41f648c26d7aee3 # v2
         with:
           find: "extension_version"
           replace: ${{ steps.package-version.outputs.current-version}}
           include: "vss-extension.json"
       - name: update extension id
-        uses: jacobtomlinson/gha-find-replace@v2
+        uses: jacobtomlinson/gha-find-replace@f485fdc3f67a6d87ae6e3d11e41f648c26d7aee3 # v2
         with:
           find: "extension_id"
           replace: ${{ secrets.EXTENSION_DEV_ID }}
           include: "vss-extension.json"
       - name: update extension publisher
-        uses: jacobtomlinson/gha-find-replace@v2
+        uses: jacobtomlinson/gha-find-replace@f485fdc3f67a6d87ae6e3d11e41f648c26d7aee3 # v2
         with:
           find: "extension_publisher"
           replace: ${{ secrets.EXTENSION_DEV_PUBLISHER }}
           include: "vss-extension.json"
       - name: update extension public
-        uses: jacobtomlinson/gha-find-replace@v2
+        uses: jacobtomlinson/gha-find-replace@f485fdc3f67a6d87ae6e3d11e41f648c26d7aee3 # v2
         with:
           find: "extension_public"
           replace: false
           include: "vss-extension.json"
       - name: update task id
-        uses: jacobtomlinson/gha-find-replace@v2
+        uses: jacobtomlinson/gha-find-replace@f485fdc3f67a6d87ae6e3d11e41f648c26d7aee3 # v2
         with:
           find: "task_id"
           replace: ${{ secrets.TASK_DEV_ID }}
@@ -87,8 +87,8 @@ jobs:
     runs-on: ubuntu-latest
     if: success() && startsWith(github.ref, 'refs/tags/')
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+      - uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
         with:
           node-version: '18'
           cache: 'npm'
@@ -96,33 +96,33 @@ jobs:
       - run: npm install
       - name: get-npm-version
         id: package-version
-        uses: martinbeentjes/npm-get-version-action@master
+        uses: martinbeentjes/npm-get-version-action@7aa1d82604bb2dbe377a64ca35e692e6fe333c9c # master
       - name: update version
-        uses: jacobtomlinson/gha-find-replace@v2
+        uses: jacobtomlinson/gha-find-replace@f485fdc3f67a6d87ae6e3d11e41f648c26d7aee3 # v2
         with:
           find: "extension_version"
           replace: ${{ steps.package-version.outputs.current-version}}
           include: "vss-extension.json"
       - name: update extension id
-        uses: jacobtomlinson/gha-find-replace@v2
+        uses: jacobtomlinson/gha-find-replace@f485fdc3f67a6d87ae6e3d11e41f648c26d7aee3 # v2
         with:
           find: "extension_id"
           replace: ${{ secrets.EXTENSION_PROD_ID }}
           include: "vss-extension.json"
       - name: update extension publisher
-        uses: jacobtomlinson/gha-find-replace@v2
+        uses: jacobtomlinson/gha-find-replace@f485fdc3f67a6d87ae6e3d11e41f648c26d7aee3 # v2
         with:
           find: "extension_publisher"
           replace: ${{ secrets.EXTENSION_PROD_PUBLISHER }}
           include: "vss-extension.json"
       - name: update extension public
-        uses: jacobtomlinson/gha-find-replace@v2
+        uses: jacobtomlinson/gha-find-replace@f485fdc3f67a6d87ae6e3d11e41f648c26d7aee3 # v2
         with:
           find: "extension_public"
           replace: true
           include: "vss-extension.json"
       - name: update task id
-        uses: jacobtomlinson/gha-find-replace@v2
+        uses: jacobtomlinson/gha-find-replace@f485fdc3f67a6d87ae6e3d11e41f648c26d7aee3 # v2
         with:
           find: "task_id"
           replace: ${{ secrets.TASK_PROD_ID }}
@@ -138,7 +138,7 @@ jobs:
           EXTENSION_ID: ${{ secrets.EXTENSION_PROD_ID }}
       - name: Upload azure devops extension to release
         if: always()
-        uses: svenstaro/upload-release-action@v2
+        uses: svenstaro/upload-release-action@cc92c9093e5f785e23a3d654fe2671640b851b5f # v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: dist/*
@@ -149,7 +149,7 @@ jobs:
         if: always()
       - name: 'Automated Version Bump of package.json'
         if: always()
-        uses: phips28/gh-action-bump-version@master
+        uses: phips28/gh-action-bump-version@25cd8ffb8ec95f16f83a8dac9557a845e4fa9e21 # master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

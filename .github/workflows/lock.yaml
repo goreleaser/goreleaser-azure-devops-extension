@@ -4,11 +4,17 @@ on:
   schedule:
     - cron: '0 * * * *'
 
+permissions:  # added using https://github.com/step-security/secure-repo
+  contents: read
+
 jobs:
   lock:
+    permissions:
+      issues: write  # for dessant/lock-threads to lock issues
+      pull-requests: write  # for dessant/lock-threads to lock PRs
     runs-on: ubuntu-latest
     steps:
-      - uses: dessant/lock-threads@v4
+      - uses: dessant/lock-threads@c1b35aecc5cdb1a34539d14196df55838bb2f836 # v4.0.0
         with:
           github-token: ${{ github.token }}
           issue-inactive-days: 30
