@@ -140,7 +140,7 @@ jobs:
           EXTENSION_ID: ${{ secrets.EXTENSION_PROD_ID }}
       - name: Upload azure devops extension to release
         if: always()
-        uses: svenstaro/upload-release-action@7319e4733ec7a184d739a6f412c40ffc339b69c7 # v2
+        uses: svenstaro/upload-release-action@7319e4733ec7a184d739a6f412c40ffc339b69c7 # v2.5.0
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: dist/*
