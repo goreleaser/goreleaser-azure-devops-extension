@@ -31,7 +31,7 @@
   "homepage": "https://github.com/goreleaser/goreleaser-azure-devops-extension#readme",
   "devDependencies": {
     "@types/mocha": "10.0.1",
-    "@typescript-eslint/eslint-plugin": "5.57.1",
+    "@typescript-eslint/eslint-plugin": "5.58.0",
     "@typescript-eslint/parser": "5.58.0",
     "eslint": "8.38.0",
     "prettier": "2.8.7",
