@@ -151,7 +151,7 @@ jobs:
         if: always()
       - name: 'Automated Version Bump of package.json'
         if: always()
-        uses: phips28/gh-action-bump-version@0a5ec790bacbcce44005b6a806310cfcca5f32a6 # master
+        uses: phips28/gh-action-bump-version@95099cd5edcdae43499bc94202b9d907e739e9c8 # master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
