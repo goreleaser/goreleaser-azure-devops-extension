@@ -39,7 +39,7 @@ jobs:
       - run: npm install
       - name: get-npm-version
         id: package-version
-        uses: martinbeentjes/npm-get-version-action@3cf273023a0dda27efcd3164bdfb51908dd46a5b # master
+        uses: martinbeentjes/npm-get-version-action@3cf273023a0dda27efcd3164bdfb51908dd46a5b # v10.1.1
       - name: update version
         uses: jacobtomlinson/gha-find-replace@a51bbcd94d000df9ca0fcb54ec8be69aad8374b0 # v3.0.2
         with:
@@ -151,7 +151,7 @@ jobs:
         if: always()
       - name: 'Automated Version Bump of package.json'
         if: always()
-        uses: phips28/gh-action-bump-version@95099cd5edcdae43499bc94202b9d907e739e9c8 # master
+        uses: phips28/gh-action-bump-version@8967e27a4427b87c0071975df4b5e8500d0f63de # v10.1.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
