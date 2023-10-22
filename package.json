@@ -32,7 +32,7 @@
   "devDependencies": {
     "@types/mocha": "10.0.2",
     "@typescript-eslint/eslint-plugin": "6.8.0",
-    "@typescript-eslint/parser": "6.7.4",
+    "@typescript-eslint/parser": "6.8.0",
     "eslint": "8.51.0",
     "prettier": "3.0.3",
     "tfx-cli": "0.16.0",
