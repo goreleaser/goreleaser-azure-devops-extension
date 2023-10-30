@@ -8,8 +8,7 @@
 ![Azure DevOps](https://img.shields.io/badge/azure_devops-0078D7?style=for-the-badge&logo=azuredevops&logoColor=white)
 
 [![Join Discord](https://img.shields.io/badge/Join_our_Discord_server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/RGEBtg8vQ6)
-[![Join Discord](https://img.shields.io/badge/follow_on_twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/goreleaser)
-
+[![x.com](https://img.shields.io/badge/-@goreleaser-000000?style=for-the-badge&logo=X&logoColor=ffffff)](https://x.com/goreleaser)
 
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/dirien/minectl/badge?style=for-the-badge)](https://api.securityscorecards.dev/projects/github.com/goreleaser/goreleaser-azure-devops-extension)
 
