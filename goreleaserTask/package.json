@@ -1,6 +1,6 @@
 {
     "dependencies": {
-        "@types/node": "20.11.10",
+        "@types/node": "20.11.14",
         "axios": "1.4.0",
         "azure-pipelines-task-lib": "4.8.2",
         "azure-pipelines-tool-lib": "2.0.7",
