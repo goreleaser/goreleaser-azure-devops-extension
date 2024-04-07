@@ -35,7 +35,7 @@
     "@typescript-eslint/parser": "7.5.0",
     "eslint": "8.57.0",
     "prettier": "3.2.5",
-    "tfx-cli": "0.16.0",
+    "tfx-cli": "0.17.0",
     "ts-mocha": "10.0.0",
     "typescript": "5.4.4"
   }
