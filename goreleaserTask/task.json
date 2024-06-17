@@ -10,8 +10,8 @@
   "releaseNotes": "First release",
   "version": {
     "Major": 0,
-    "Minor": 1,
-    "Patch": 8
+    "Minor": 2,
+    "Patch": 0
   },
   "instanceNameFormat": "GoReleaser is a release automation tool for Go projects",
   "inputs": [
@@ -64,7 +64,7 @@
     }
   ],
   "execution": {
-    "Node10": {
+    "Node16": {
       "target": "src//index.js"
     }
   }
