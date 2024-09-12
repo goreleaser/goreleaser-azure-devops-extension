@@ -37,6 +37,6 @@
     "prettier": "3.3.3",
     "tfx-cli": "0.17.0",
     "ts-mocha": "10.0.0",
-    "typescript": "5.5.4"
+    "typescript": "5.6.2"
   }
 }
