@@ -41,31 +41,31 @@ jobs:
         id: package-version
         uses: martinbeentjes/npm-get-version-action@3cf273023a0dda27efcd3164bdfb51908dd46a5b # v10.1.1
       - name: update version
-        uses: jacobtomlinson/gha-find-replace@863001a682308a0a2405e69e645cb0899b5ee64b # v3.0.4
+        uses: jacobtomlinson/gha-find-replace@f1069b438f125e5395d84d1c6fd3b559a7880cb5 # v3.0.5
         with:
           find: "extension_version"
           replace: ${{ steps.package-version.outputs.current-version}}
           include: "vss-extension.json"
       - name: update extension id
-        uses: jacobtomlinson/gha-find-replace@863001a682308a0a2405e69e645cb0899b5ee64b # v3.0.4
+        uses: jacobtomlinson/gha-find-replace@f1069b438f125e5395d84d1c6fd3b559a7880cb5 # v3.0.5
         with:
           find: "extension_id"
           replace: ${{ secrets.EXTENSION_DEV_ID }}
           include: "vss-extension.json"
       - name: update extension publisher
-        uses: jacobtomlinson/gha-find-replace@863001a682308a0a2405e69e645cb0899b5ee64b # v3.0.4
+        uses: jacobtomlinson/gha-find-replace@f1069b438f125e5395d84d1c6fd3b559a7880cb5 # v3.0.5
         with:
           find: "extension_publisher"
           replace: ${{ secrets.EXTENSION_DEV_PUBLISHER }}
           include: "vss-extension.json"
       - name: update extension public
-        uses: jacobtomlinson/gha-find-replace@863001a682308a0a2405e69e645cb0899b5ee64b # v3.0.4
+        uses: jacobtomlinson/gha-find-replace@f1069b438f125e5395d84d1c6fd3b559a7880cb5 # v3.0.5
         with:
           find: "extension_public"
           replace: false
           include: "vss-extension.json"
       - name: update task id
-        uses: jacobtomlinson/gha-find-replace@863001a682308a0a2405e69e645cb0899b5ee64b # v3.0.4
+        uses: jacobtomlinson/gha-find-replace@f1069b438f125e5395d84d1c6fd3b559a7880cb5 # v3.0.5
         with:
           find: "task_id"
           replace: ${{ secrets.TASK_DEV_ID }}
@@ -100,31 +100,31 @@ jobs:
         id: package-version
         uses: martinbeentjes/npm-get-version-action@3cf273023a0dda27efcd3164bdfb51908dd46a5b # v1.3.1
       - name: update version
-        uses: jacobtomlinson/gha-find-replace@863001a682308a0a2405e69e645cb0899b5ee64b # v3.0.4
+        uses: jacobtomlinson/gha-find-replace@f1069b438f125e5395d84d1c6fd3b559a7880cb5 # v3.0.5
         with:
           find: "extension_version"
           replace: ${{ steps.package-version.outputs.current-version}}
           include: "vss-extension.json"
       - name: update extension id
-        uses: jacobtomlinson/gha-find-replace@863001a682308a0a2405e69e645cb0899b5ee64b # v3.0.4
+        uses: jacobtomlinson/gha-find-replace@f1069b438f125e5395d84d1c6fd3b559a7880cb5 # v3.0.5
         with:
           find: "extension_id"
           replace: ${{ secrets.EXTENSION_PROD_ID }}
           include: "vss-extension.json"
       - name: update extension publisher
-        uses: jacobtomlinson/gha-find-replace@863001a682308a0a2405e69e645cb0899b5ee64b # v3.0.4
+        uses: jacobtomlinson/gha-find-replace@f1069b438f125e5395d84d1c6fd3b559a7880cb5 # v3.0.5
         with:
           find: "extension_publisher"
           replace: ${{ secrets.EXTENSION_PROD_PUBLISHER }}
           include: "vss-extension.json"
       - name: update extension public
-        uses: jacobtomlinson/gha-find-replace@863001a682308a0a2405e69e645cb0899b5ee64b # v3.0.4
+        uses: jacobtomlinson/gha-find-replace@f1069b438f125e5395d84d1c6fd3b559a7880cb5 # v3.0.5
         with:
           find: "extension_public"
           replace: true
           include: "vss-extension.json"
       - name: update task id
-        uses: jacobtomlinson/gha-find-replace@863001a682308a0a2405e69e645cb0899b5ee64b # v3.0.4
+        uses: jacobtomlinson/gha-find-replace@f1069b438f125e5395d84d1c6fd3b559a7880cb5 # v3.0.5
         with:
           find: "task_id"
           replace: ${{ secrets.TASK_PROD_ID }}
