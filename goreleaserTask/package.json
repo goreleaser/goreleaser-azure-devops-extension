@@ -4,6 +4,6 @@
         "axios": "1.7.2",
         "azure-pipelines-task-lib": "4.17.3",
         "azure-pipelines-tool-lib": "2.0.8",
-        "semver": "7.6.3"
+        "semver": "7.7.0"
     }
 }
