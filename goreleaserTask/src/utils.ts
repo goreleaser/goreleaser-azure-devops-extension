@@ -98,18 +98,13 @@ export async function getGoReleaserCLI(version, distribution: string) {
         );
         if (version === 'latest') {
             checkedVersion = semver.maxSatisfying(cleanTags, '*');
-            if (isPro(distribution)) {
-                checkedVersion += suffix(distribution);
-            }
 
         } else {
 
             const cleanVersion: string = cleanTag(version);
             checkedVersion =
-                semver.maxSatisfying(cleanTags, cleanVersion) +
-                suffix(distribution);
+                semver.maxSatisfying(cleanTags, cleanVersion)
         }
-
         const filename = getGoreleaserFilename(distribution, checkedVersion);
         const downloadUrl = util.format(
             'https://github.com/goreleaser/%s/releases/download/%s/%s',
