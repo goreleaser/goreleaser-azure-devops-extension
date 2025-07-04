@@ -1,6 +1,6 @@
 {
   "name": "goreleaser-azure-devops-extension",
-  "version": "0.1.49",
+  "version": "0.1.50",
   "description": "Azure DevOps Extension for GoReleaser",
   "main": "index.js",
   "scripts": {
