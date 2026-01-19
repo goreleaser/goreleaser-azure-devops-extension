@@ -1,32 +1,38 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "daily"
-      time: "08:00"
-    labels:
-      - "dependencies"
-    commit-message:
-      prefix: "chore"
-      include: "scope"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
-      time: "08:00"
+      interval: "weekly"
+      day: "monday"
+      time: "05:00"
+      timezone: "America/New_York"
     labels:
       - "dependencies"
     commit-message:
-      prefix: "chore"
+      prefix: "ci"
       include: "scope"
+    groups:
+      actions:
+        patterns:
+          - "*"
   - package-ecosystem: "npm"
-    directory: "/goreleaserTask"
+    directories:
+      - "/"
+      - "/goreleaserTask"
     schedule:
-      interval: "daily"
-      time: "08:00"
+      interval: "weekly"
+      day: "monday"
+      time: "05:00"
+      timezone: "America/New_York"
+    allow:
+      - dependency-type: "production"
     labels:
       - "dependencies"
     commit-message:
       prefix: "chore"
       include: "scope"
+    groups:
+      npm:
+        patterns:
+          - "*"
