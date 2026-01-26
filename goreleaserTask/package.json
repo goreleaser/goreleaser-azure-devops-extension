@@ -1,9 +1,9 @@
 {
     "dependencies": {
-        "@types/node": "22.15.17",
-        "axios": "1.7.2",
-        "azure-pipelines-task-lib": "5.2.1",
-        "azure-pipelines-tool-lib": "2.0.8",
-        "semver": "7.7.2"
+        "@types/node": "25.0.10",
+        "axios": "1.13.3",
+        "azure-pipelines-task-lib": "5.2.6",
+        "azure-pipelines-tool-lib": "2.0.10",
+        "semver": "7.7.3"
     }
 }
