@@ -51,13 +51,52 @@ Following inputs can be used
 | Name           | Type   | Default                     | Description                                                      |
 |----------------|--------|-----------------------------|------------------------------------------------------------------|
 | `distribution` | String | `goreleaser`                | GoReleaser distribution, either `goreleaser` or `goreleaser-pro` |
-| `version`**¹** | String | `latest`                    | GoReleaser version                                               |
+| `version`      | String | `latest`                    | GoReleaser version (see below)                                   |
 | `args`         | String |                             | Arguments to pass to GoReleaser                                  |
 | `workdir`      | String | `$(Build.SourcesDirectory)` | Working directory (below repository root)                        |
 | `installOnly`  | Bool   | `false`                     | Just install GoReleaser                                          |
 
-> **¹** Can be a fixed version like `v0.132.0` or a max satisfying semver one like `~> 0.132`. In this case this will return `v0.132.1`.
-> For the `pro` version, add `-pro` to the string
+### Version input
+
+The `version` input accepts:
+
+- `latest` (default) — grabs the most recent release
+- An exact version like `v2.6.1`
+- A semver range like `~> 2.6`, which resolves to the highest matching release (e.g. the latest `2.6.x` patch)
+
+For GoReleaser Pro, append `-pro` to the version (e.g. `v2.6.1-pro`).
+
+#### Examples
+
+```yaml
+# Latest version
+- task: goreleaser@0
+  inputs:
+    version: 'latest'
+    distribution: 'goreleaser'
+    args: 'release --clean'
+
+# Exact version
+- task: goreleaser@0
+  inputs:
+    version: 'v2.6.1'
+    distribution: 'goreleaser'
+    args: 'release --clean'
+
+# Semver range — gets latest 2.6.x
+- task: goreleaser@0
+  inputs:
+    version: '~> 2.6'
+    distribution: 'goreleaser'
+    args: 'release --clean'
+
+# GoReleaser Pro
+- task: goreleaser@0
+  inputs:
+    version: 'v2.6.1-pro'
+    distribution: 'goreleaser-pro'
+    args: 'release --clean'
+```
 
 ### Environment variables
 
