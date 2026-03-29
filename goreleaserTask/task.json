@@ -64,7 +64,7 @@
     }
   ],
   "execution": {
-    "Node16": {
+    "Node24": {
       "target": "src//index.js"
     }
   }
