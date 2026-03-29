@@ -134,7 +134,7 @@ function getGoreleaserFilename(distribution, version: string): string {
         case 'x64':
             arch = 'x86_64';
             break;
-        case 'x32':
+        case 'ia32':
             arch = 'i386';
             break;
         case 'arm':
