@@ -140,7 +140,7 @@ jobs:
           EXTENSION_ID: ${{ secrets.EXTENSION_PROD_ID }}
       - name: Upload azure devops extension to release
         if: always()
-        uses: svenstaro/upload-release-action@b98a3b12e86552593f3e4e577ca8a62aa2f3f22b # v2.11.4
+        uses: svenstaro/upload-release-action@29e53e917877a24fad85510ded594ab3c9ca12de # v2.11.5
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: dist/*
@@ -151,7 +151,7 @@ jobs:
         if: always()
       - name: 'Automated Version Bump of package.json'
         if: always()
-        uses: phips28/gh-action-bump-version@2d294fcd028d7ec0de2fa4e94ad7fe04512cc13a # v11.1.2
+        uses: phips28/gh-action-bump-version@215e27a882516826c59df7f09da8c67d5f375cbd # v11.1.5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
